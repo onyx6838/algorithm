@@ -1,0 +1,9 @@
+Ma tran
+    2    3    4
+    5    6    7
+    7    8    9
+
+Tich cac pt tren duong cheo chinh 108
+Ma tran khong tgt
+TBC le 0.000000
+Tong cac phan tu nam tren hang chan cot le 12

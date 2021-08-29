@@ -1,0 +1,6 @@
+Thong tin nvien
+4
+Doan Bao                      400            1                             
+Minh Khanh                    500            2                             
+Quoc                          650            3                             
+Dieu                          600            2                             

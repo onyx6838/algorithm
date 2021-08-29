@@ -1,0 +1,2 @@
+Tong 2 so = 40
+Tich 2 so = 300

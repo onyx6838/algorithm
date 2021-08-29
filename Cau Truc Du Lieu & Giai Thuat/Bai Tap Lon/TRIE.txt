@@ -1,0 +1,79 @@
+#include<iostream>
+using std::cout;
+using std::endl;
+
+const int ALPHABET_SIZE 26;
+const int CASE = 'a';
+
+struct Node
+{
+	Node* parent_ = nullptr;
+	Node* children_[ALPHABET_SIZE] = {};
+	int occurrences_ = 0;
+};
+
+void InsertNode(Node* trieTree, char* word)
+{
+	Node currentNode = trieTree;
+	while (*word != '\0')
+	{
+		if (currentNode->children_[*word - CASE] == nullptr)
+		{
+			currentNode->children_[*word - CASE] = new Node();
+			currentNode->children_[*word - CASE]->parent_ = currentNode;
+		}
+		++word;
+	}
+	++currentNode->occurrences_;
+}
+
+Node* Search(Node* trieTree, char* word)
+{
+	while (*word != '\0')
+	{
+		if (trieTree->children_[*word - CASE] != nullptr)
+		{
+			trieTree = trieTree->children_[*word - CASE];
+			++word;
+		}
+		else return nullptr;
+	}
+	return (trieTree->occurrences_ != 0) ? trieTree : nullptr;
+}
+
+void DeleteNode(Node* trieTree, char* word)
+{
+	Node* currentNode = Search(trieTree, word);
+	if (currentNode != nullptr)
+	{
+		--currentNode->occurrences_;
+		Node* parent = nullptr;
+		bool isLeaf = true;
+		for (int i = 0; i < ALPHABET_SIZE; ++i)
+		{
+			if (currentNode->children_[i] != nullptr)
+			{
+				isLeaf = false
+				break;
+			}
+		}
+		while (currentNode->parent_ != nullptr && isLeaf && currentNode->occurrences_ == 0)
+		{
+			parent = currentNode->parent_;
+			for (int i = 0; i < ALPHABET_SIZE; ++i)
+			{
+				if (parent->children_[i] == currentNode)
+				{
+					parent->children_[i] = nullptr;
+					delete currentNode;
+					currentNode = parent;
+				}
+				else if (parent->children_[i] != nullptr)
+				{
+					isLeaf = false;
+					break;
+				}
+			}
+		}
+	}
+}

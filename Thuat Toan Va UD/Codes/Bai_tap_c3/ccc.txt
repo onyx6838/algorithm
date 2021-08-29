@@ -1,0 +1,52 @@
+				while ((n1>last_n1 && !f1m.eof()) || (n2>last_n2 && !f2m.eof())) {
+					while (n1 < n2 && n1>last_n1)  {
+						if((n1>last_n1 && !f1m.eof()) || i==0) f0m << n1 << endl;
+						cout<<"n1="<<n1<<"__"<<last_n1<<"__1"<<"__n2="<<n2<<"__"<<last_n2<<endl;
+						i++;
+						if(n1>last_n1 && !f1m.eof()) {
+							getline(f1m, s); 
+							if (s != "") {
+								last_n1 = n1;
+								n1 = stoi(s);
+							}
+						} //else n1 = INT_MAX;
+					}
+					while (n1 < n2 && n1 < last_n1)  {
+						if(n2>last_n2 && !f2m.eof()) f0m << n2 << endl;
+						cout<<"n2 "<<n2<<"__"<<last_n2<<"__21"<<endl;
+						if(n2>last_n2 && !f2m.eof()) {
+							getline(f2m, s);
+							if (s != "") {
+								last_n2 = n2;
+								n2 = stoi(s);			
+							}
+						} //else n2 = INT_MAX;
+						//if (n2<last_n2) break;
+					}
+					while (n2 < n1 && n2>last_n2) {
+						if((n2>last_n2 && !f2m.eof()) || j==0) f0m << n2 << endl;
+						cout<<"n2 "<<n2<<"__"<<last_n2<<"__22"<<endl;
+						j++;
+						if(n2>last_n2 && !f2m.eof()) {
+							getline(f2m, s);
+							if (s != "") {
+								last_n2 = n2;
+								n2 = stoi(s);							
+							}
+						} //else n2 = INT_MAX;
+					}
+					while (n2 < n1 && n2 < last_n2)  {
+						if(n1>last_n1 && !f1m.eof()) f0m << n1 << endl;
+						cout<<"n1="<<n1<<"__"<<last_n1<<"__1"<<"__n2="<<n2<<"__"<<last_n2<<endl;
+						if(n1>last_n1 && !f1m.eof()) {
+							getline(f1m, s); 
+							if (s != "") {
+								last_n1 = n1;
+								n1 = stoi(s);
+							}
+						} //else n1 = INT_MAX;
+						//if (n1<last_n1) break;			
+					}
+					cout<<"Lap ngoai while n1="<<n1<<"__"<<last_n1<<"__1"<<"__n2="<<n2<<"__"<<last_n2<<endl;
+					if (n1<last_n1 && n2<last_n2) break;
+				}
