@@ -1,0 +1,7 @@
+|                 Ver|                ssss|             P_Queue|
+|                   A|                 CDE|                 DEC|
+|                   D|                  FI|                EIFC|
+|                   E|                  GK|               GIFKC|
+|                   G|                  BH|              BHIFKC|
+|                   B|                TTKT|                    |
+Way:A->E->G->B
